@@ -108,7 +108,56 @@ def gMusica(artista,album,musica,ficheiro,path):
             writer.writerow({'Artista': artista,'Album': album,'Música': musica, 'Demo': ficheiro, 'Path': path})
             csv_file.close()
    else:
-        functions.MenuEditar()     
+        functions.MenuEditar()   
+        
+#Função apagar Musica              
+def aMusica(musica):
+    if checkMusica(musica):
+        lmusica = list()    
+        with open('musicas.csv', mode='r', newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                lmusica.append(row)
+                for field in row:
+                    if field == Album:
+                        lmusica.remove(row)      
+
+#Função apagar Album              
+def aAlbum(Album):
+    if checkAlbum(Album):
+        lalbum = list()    
+        with open('albuns.csv', mode='r', newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                lalbum.append(row)
+                for field in row:
+                    if field == Album:
+                        lalbum.remove(row)
+
+        with open('albuns.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lalbum)
+        
+        lmusica = list()    
+        with open('musicas.csv', mode='r', newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                lmusica.append(row)
+                for field in row:
+                    if field == Album:
+                        lmusica.remove(row)
+
+        with open('musicas.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lmusica)
+            
+
+
+        with open('musicas.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lmusica)
+
+#Função apagar Artista  
 def aArtista(artista):
     if checkArtista(artista):
         lartista = list()
@@ -150,33 +199,3 @@ def aArtista(artista):
         with open('musicas.csv', mode='w', newline='') as writeFile:
             writer = csv.writer(writeFile)
             writer.writerows(lmusica)
-            
-def aAlbum(Album):
-    if checkAlbum(Album):
-        lalbum = list()    
-        with open('albuns.csv', mode='r', newline='') as csv_file:
-            reader = csv.reader(csv_file)
-            for row in reader:
-                lalbum.append(row)
-                for field in row:
-                    if field == Album:
-                        lalbum.remove(row)
-
-        with open('albuns.csv', mode='w', newline='') as writeFile:
-            writer = csv.writer(writeFile)
-            writer.writerows(lalbum)
-        
-        lmusica = list()    
-        with open('musicas.csv', mode='r', newline='') as csv_file:
-            reader = csv.reader(csv_file)
-            for row in reader:
-                lmusica.append(row)
-                for field in row:
-                    if field == Album:
-                        lmusica.remove(row)
-
-        with open('musicas.csv', mode='w', newline='') as writeFile:
-            writer = csv.writer(writeFile)
-            writer.writerows(lmusica)
-            
-aAlbum("walk")

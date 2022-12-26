@@ -93,7 +93,7 @@ def MenuEditar():
             
 def MenuApagar():
         while True:
-            print("|| Menu Apagar\n|| 1. Autor\n|| 2. Álbum\n|| 0. Voltar")
+            print("|| Menu Apagar\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 0. Voltar")
             opt=int(input("|| Opção:"))
             if opt==1:
                 print("|| Apagar por Autor! Vai eliminar também os Álbuns")
@@ -103,6 +103,11 @@ def MenuApagar():
                 print("|| Apagar Álbuns")
                 nome = input("|| Introduza o Nome:")
                 dados.aAlbum(nome)
+                
+            elif opt==3:
+                print("|| Apagar Álbuns")
+                nome = input("|| Introduza o Nome:")
+                dados.aAlbum(nome)    
             elif opt==0:
                 break
             else:
