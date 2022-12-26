@@ -2,7 +2,7 @@ import csv
 
 #função para verificar se o artista existe no ficheiro artista.csv
 def checkArtista(artista):
-    with open('artista.csv') as csv_file:
+    with open('artista.csv', "r") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         pArtista = 0
         for row in csv_reader:
@@ -10,11 +10,41 @@ def checkArtista(artista):
                 pArtista = 1
          
         if pArtista == 0:
-            print("|| Artista não existente, por favor criar")
+            print("|| Artista não existente!")
             return 0
         else:
             return 1
-        
+#função para verificar se o album existe no ficheiro albuns.csv
+def checkAlbum(album):
+    with open('albuns.csv', "r") as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        pAlbum = 0
+        for row in csv_reader:
+            if row[1] == album:
+                pAlbum = 1
+         
+        if pAlbum == 0:
+            print("|| Album não existente!")
+            return 0
+        else:
+            return 1
+
+#função para verificar se a musica existe no ficheiro musicas.csv
+def checkMusica(Musica):
+    with open('musicas.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        pMusica = 0
+        for row in csv_reader:
+            print(type(row))
+            if row[2] == Musica:
+                pMusica = 1
+         
+        if pMusica == 0:
+            print("|| Musica não existente!")
+            return 0
+        else:
+            return 1
+                
 #Módulo de procurar por Artista
 def pArtista(artista):
     with open('albuns.csv') as csv_file:
@@ -24,22 +54,17 @@ def pArtista(artista):
             for row in csv_reader:
                 if row[0] == artista:
                     print ("{:<25} {:<35} {:<10} {:<10}".format(row[0], row[1], row[2], row[3]))
-
+#Módulo de procurar por Album
 def pAlbum(album):
-    with open('albuns.csv') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        pAlbum = 0
-        for item in csv_reader:
-            if item[1] == album:
-                pAlbum = 1
-        if pAlbum:
+    if checkAlbum(album):
+        with open('albuns.csv') as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
             print ("{:<25} {:<35} {:<10} {:<10}".format("Artista", "Album", "Género", "Data"))
             for row in csv_reader:
                 if row[1] == album:
                     print ("{:<25} {:<35} {:<10} {:<10}".format(row[0], row[1], row[2], row[3]))
 def pMusica():
     pass
-pAlbum("Pimba")
 
 #Função para adicionar Artista        
 def gArtista(nome,nacionalidade,royalty):
@@ -63,3 +88,74 @@ def gAlbum(artista,nome,genero,data,vendas,preco):
         writer.writerow({'Artista': artista,'Album': nome,'Genero': genero, 'Data': data, 'Vendas': vendas,'Preco': preco})
         csv_file.close()
     
+def aArtista(artista):
+    if checkArtista(artista):
+        lartista = list()
+
+        with open('artista.csv', mode='r', newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                lartista.append(row)
+                for field in row:
+                    if field == artista:
+                        lartista.remove(row)
+        
+        with open('artista.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lartista)
+
+        lalbum = list()    
+        with open('albuns.csv', mode='r', newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                lalbum.append(row)
+                for field in row:
+                    if field == artista:
+                        lalbum.remove(row)
+
+        with open('albuns.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lalbum)
+        
+        lmusica = list()    
+        with open('musicas.csv', mode='r', newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                lmusica.append(row)
+                for field in row:
+                    if field == artista:
+                        lmusica.remove(row)
+
+        with open('musicas.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lmusica)
+            
+def aAlbum(Album):
+    if checkAlbum(Album):
+        lalbum = list()    
+        with open('albuns.csv', mode='r', newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                lalbum.append(row)
+                for field in row:
+                    if field == Album:
+                        lalbum.remove(row)
+
+        with open('albuns.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lalbum)
+        
+        lmusica = list()    
+        with open('musicas.csv', mode='r', newline='') as csv_file:
+            reader = csv.reader(csv_file)
+            for row in reader:
+                lmusica.append(row)
+                for field in row:
+                    if field == Album:
+                        lmusica.remove(row)
+
+        with open('musicas.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lmusica)
+            
+aAlbum("walk")

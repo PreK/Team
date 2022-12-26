@@ -3,12 +3,14 @@ import dados
 def MenuInicial(admin):
     if admin==True:
         while True:
-            print("|| Menu Admin\n|| 1. Pesquisar\n|| 2. Editar\n|| 0. Sair")
+            print("|| Menu Admin\n|| 1. Pesquisar\n|| 2. Editar\n|| 3. Apagar\n|| 0. Sair")
             opt=int(input("|| Opção:"))
             if opt==1:
                 MenuPesquisar()
             elif opt==2:
                 MenuEditar()
+            elif opt==3:
+                MenuApagar()
             elif opt==0:
                 print("|| Terminado com sucesso")
                 break
@@ -68,6 +70,24 @@ def MenuEditar():
                 vendas = input("|| Introduza o Unidades Vendidas:")
                 preco = input("|| Introduza o Preço:")
                 dados.gAlbum(artista,nome,genero,data,vendas,preco)
+            elif opt==0:
+                break
+            else:
+                print("|| O valor introdzido é inválido")
+                continue
+            
+def MenuApagar():
+        while True:
+            print("|| Menu Apagar\n|| 1. Autor\n|| 2. Álbum\n|| 0. Voltar")
+            opt=int(input("|| Opção:"))
+            if opt==1:
+                print("|| Apagar por Autor! Vai eliminar também os Álbuns")
+                nome = input("|| Introduza o Nome:")
+                dados.aArtista(nome)
+            elif opt==2:
+                print("|| Apagar Álbuns")
+                nome = input("|| Introduza o Nome:")
+                dados.aAlbum(nome)
             elif opt==0:
                 break
             else:
