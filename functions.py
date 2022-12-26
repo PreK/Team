@@ -43,10 +43,12 @@ def MenuPesquisar():
             dados.pArtista(artista)
         elif opt==2:
             print("|| Pesquisa por Álbuns")
-            input("|| Introduza o Nome Do Álbum:")
+            album = input("|| Introduza o Nome Do Álbum:")
+            dados.pArtista(album)
         elif opt==3:
             print("|| Pesquisa por Músicas")            
-            input("|| Introduza o Nome Da Música:")
+            musica = input("|| Introduza o Nome Da Música:")
+            dados.pMusica(musica)
         elif opt==0:
             break
         else:
@@ -55,7 +57,7 @@ def MenuPesquisar():
 #Só acessivel a admin
 def MenuEditar():
         while True:
-            print("|| Menu Editar\n|| 1. Autores\n|| 2. Álbuns\n|| 0. Voltar")
+            print("|| Menu Editar\n|| 1. Autores\n|| 2. Álbuns\n|| 3. Música\n|| 0. Voltar")
             opt=int(input("|| Opção:"))
             if opt==1:
                 print("|| Editor de Autores")
@@ -72,6 +74,17 @@ def MenuEditar():
                 vendas = input("|| Introduza o Unidades Vendidas:")
                 preco = input("|| Introduza o Preço:")
                 dados.gAlbum(artista,nome,genero,data,vendas,preco)
+            elif opt==3:
+                print("|| Editor de Músicas")
+                artista = input("|| Introduza o Artista:")
+                album = input("|| Introduza o album:")
+                adicionar = "sim"
+                while adicionar == "sim":
+                    musica = input("|| Introduza a musica:")
+                    ficheiro = input("|| Tem demo?: (sim/não):")
+                    path = input("|| Nome do ficheiro:")
+                    adicionar = input("|| Adicionar outra Música ao album? (sim/não):")
+                    dados.gMusica(artista,album,musica,ficheiro,path)
             elif opt==0:
                 break
             else:

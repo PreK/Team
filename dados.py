@@ -1,5 +1,5 @@
 import csv
-
+import functions
 #função para verificar se o artista existe no ficheiro artista.csv
 def checkArtista(artista):
     with open('artista.csv', "r") as csv_file:
@@ -63,8 +63,15 @@ def pAlbum(album):
             for row in csv_reader:
                 if row[1] == album:
                     print ("{:<25} {:<35} {:<10} {:<10}".format(row[0], row[1], row[2], row[3]))
-def pMusica():
-    pass
+#Módulo de procurar por Música
+def pMusica(musica):
+    if checkMusica(musica):
+        with open('musicas.csv') as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
+            print ("{:<25} {:<35} {:<10} {:<10}".format("Artista", "Album", "Música"))
+            for row in csv_reader:
+                if row[2] == musica:
+                    print ("{:<25} {:<35} {:<10} {:<10}".format(row[0], row[1], row[2]))
 
 #Função para adicionar Artista        
 def gArtista(nome,nacionalidade,royalty):
@@ -81,13 +88,27 @@ def gArtista(nome,nacionalidade,royalty):
 #Função para gravar novo album 
 def gAlbum(artista,nome,genero,data,vendas,preco):
    if checkArtista(artista):
-       with open('albuns.csv', mode='a', newline='') as csv_file:
-        chaves = ['Artista','Nome','Genero', 'Data', 'Vendas','Preco']
-        writer = csv.DictWriter(csv_file, fieldnames=chaves)
+        if checkAlbum(nome):
+            print("|| Album já existe!!")
+        else:
+            with open('albuns.csv', mode='a', newline='') as csv_file:
+                chaves = ['Artista','Album','Genero', 'Data', 'Vendas','Preco']
+                writer = csv.DictWriter(csv_file, fieldnames=chaves)
 
-        writer.writerow({'Artista': artista,'Album': nome,'Genero': genero, 'Data': data, 'Vendas': vendas,'Preco': preco})
-        csv_file.close()
-    
+                writer.writerow({'Artista': artista,'Album': nome,'Genero': genero, 'Data': data, 'Vendas': vendas,'Preco': preco})
+                csv_file.close()
+
+#Função para gravar nova música
+def gMusica(artista,album,musica,ficheiro,path):
+   if checkArtista(artista) and checkAlbum(album):
+        with open('musicas.csv', mode='a', newline='') as csv_file:
+            chaves = ['Artista','Album','Música', 'Demo', 'Path']
+            writer = csv.DictWriter(csv_file, fieldnames=chaves)
+
+            writer.writerow({'Artista': artista,'Album': album,'Música': musica, 'Demo': ficheiro, 'Path': path})
+            csv_file.close()
+   else:
+        functions.MenuEditar()     
 def aArtista(artista):
     if checkArtista(artista):
         lartista = list()
