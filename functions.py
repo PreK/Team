@@ -1,4 +1,6 @@
 import dados
+#Caso python 3.11 usar a versão pre realease "pip install pygame --pre"
+import pygame
 
 def MenuInicial(admin):
     if admin==True:
