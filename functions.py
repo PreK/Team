@@ -1,3 +1,5 @@
+import dados
+
 def MenuInicial(admin):
     if admin==True:
         while True:
@@ -52,17 +54,19 @@ def MenuEditar():
             opt=int(input("|| Opção:"))
             if opt==1:
                 print("|| Editor de Autores")
-                input("|| Introduza o Nome:")
-                input("|| Introduza o Nacionalidade:")
-                input("|| Introduza o Álbuns:")
-                input("|| Direitos editoriais:")
+                nome = input("|| Introduza o Nome:")
+                nacionalidade = input("|| Introduza o Nacionalidade:")
+                royalty = input("|| Direitos editoriais:")
+                dados.gArtista(nome,nacionalidade,royalty)
             elif opt==2:
                 print("|| Editor de Álbuns")
-                input("|| Introduza o Nome:")
-                input("|| Introduza o Género Musical:")
-                input("|| Introduza o Data de Lançamento:")
-                input("|| Introduza o Unidades Vendidas:")
-                input("|| Introduza o Preço:")
+                artista = input("|| Introduza o Artista:")
+                nome = input("|| Introduza o Nome:")
+                genero = input("|| Introduza o Género Musical:")
+                data = input("|| Introduza o Data de Lançamento:")
+                vendas = input("|| Introduza o Unidades Vendidas:")
+                preco = input("|| Introduza o Preço:")
+                dados.gAlbum(artista,nome,genero,data,vendas,preco)
             elif opt==0:
                 break
             else:
