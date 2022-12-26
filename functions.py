@@ -35,7 +35,8 @@ def MenuPesquisar():
         opt=int(input("|| Opção:"))
         if opt==1:
             print("|| Pesquisa por Autores")
-            input("|| Introduza o Nome Do Autor:")
+            artista = input("|| Introduza o Nome Do Autor:")
+            dados.pArtista(artista)
         elif opt==2:
             print("|| Pesquisa por Álbuns")
             input("|| Introduza o Nome Do Álbum:")
