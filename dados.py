@@ -77,8 +77,6 @@ def playMusica(Musica):
         mixer.init()
         mixer.music.load("Musicas/" + Musica + ".mp3")
         mixer.music.play()
-        while mixer.music.get_busy():
-            time.sleep(1)
                           
 #Módulo de procurar por Artista
 def pArtista(artista):
@@ -161,7 +159,7 @@ def aMusica(musica):
             for row in reader:
                 lmusica.append(row)
                 for field in row:
-                    if field == Album:
+                    if field == musica:
                         lmusica.remove(row)      
 
 #Função apagar Album              
