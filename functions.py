@@ -60,7 +60,7 @@ def MenuPesquisar():
 #Só acessivel a admin
 def MenuEditar():
         while True:
-            print("|| Menu Admin\n|| 1. Editar Autores\n|| 2. Editar Álbuns\n|| 3. Editar Músicas\n|| 4. Calcular Royalty\n|| 5. Listar todos\n|| 0. Voltar")
+            print("|| Menu Admin\n|| 1. Editar Autores\n|| 2. Editar Álbuns\n|| 3. Editar Músicas\n|| 4. Calcular Direitos editoriais\n|| 5. Listar todos\n|| 0. Voltar")
             opt=int(input("|| Opção:"))
             if opt==1:
                 print("|| Editor de Autores")
@@ -88,7 +88,7 @@ def MenuEditar():
                     adicionar = input("|| Adicionar outra Música ao album? (sim/não):")
                     dados.gMusica(artista,album,musica,ficheiro)
             elif opt==4:
-                autor = input("|| Introduza o nome do Autor para calcular os royalty's:")
+                autor = input("|| Introduza o nome do Autor para calcular os Direitos editoriais:")
                 print("Cálculo das vendas é de: ", dados.calculo(autor))
             elif opt==5:
                 dados.listAll()
