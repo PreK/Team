@@ -87,6 +87,8 @@ def pArtista(artista):
             for row in csv_reader:
                 if row[0] == artista:
                     print ("{:<25} {:<35} {:<10} {:<10}".format(row[0], row[1], row[2], row[3]))
+                    
+
 #Módulo de procurar por Album
 def pAlbum(album):
     if checkAlbum(album):
@@ -261,3 +263,9 @@ def calculo(Autor):
                         return soma
     else:
         print("Artista não encontrdo na base de dados")
+
+def listAll():
+    with open('artista.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        for row in csv_reader:
+            print ("{:<25} {:<35} {:<10} ".format(row[0], row[1], row[2]))

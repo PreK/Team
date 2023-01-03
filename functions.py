@@ -60,7 +60,7 @@ def MenuPesquisar():
 #Só acessivel a admin
 def MenuEditar():
         while True:
-            print("|| Menu Editar\n|| 1. Autores\n|| 2. Álbuns\n|| 3. Música\n|| 4. Royalty\n|| 0. Voltar")
+            print("|| Menu Admin\n|| 1. Editar Autores\n|| 2. Editar Álbuns\n|| 3. Editar Músicas\n|| 4. Calcular Royalty\n|| 5. Listar todos\n|| 0. Voltar")
             opt=int(input("|| Opção:"))
             if opt==1:
                 print("|| Editor de Autores")
@@ -90,6 +90,8 @@ def MenuEditar():
             elif opt==4:
                 autor = input("|| Introduza o nome do Autor para calcular os royalty's:")
                 print("Cálculo das vendas é de: ", dados.calculo(autor))
+            elif opt==5:
+                dados.listAll()
             elif opt==0:
                 break
             else:
@@ -106,7 +108,7 @@ def MenuApagar():
                 dados.aArtista(nome)
             elif opt==2:
                 print("|| Apagar Álbuns")
-                nome = input("|| Introduza o Nome do álbum:")
+                nome = input("|| Introduza o Nome do álbum  :")
                 dados.aAlbum(nome)
                 
             elif opt==3:
