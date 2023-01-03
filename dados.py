@@ -241,3 +241,26 @@ def aArtista(artista):
         with open('musicas.csv', mode='w', newline='') as writeFile:
             writer = csv.writer(writeFile)
             writer.writerows(lmusica)
+
+#Calculo de royalty's
+def calculo(Autor):
+    if checkArtista(Autor):
+        soma = 0
+        royalty = 0
+        with open('artista.csv', "r") as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
+            for row in csv_reader:
+                if row[0] == Autor:
+                    royalty = int(row[2])
+        if royalty == 0:
+            return "0 (Royalty free)"
+        else:
+            with open('albuns.csv') as csv_file:
+                        csv_reader = csv.reader(csv_file, delimiter=',')
+                        for row in csv_reader:
+                            if row[0] == Autor:
+                                soma += int(row[4]) * int(row[5]) * (royalty / 100)
+                                
+                        return soma
+    else:
+        print("Artista não encontrdo na base de dados")
