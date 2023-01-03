@@ -1,5 +1,10 @@
 import csv
 import functions
+#Para esperar enquanto o MP3 toca
+import time
+#Caso python 3.11 usar a versão pre realease "pip install pygame --pre"
+from pygame import mixer
+
 #função para verificar se o artista existe no ficheiro artista.csv
 def checkArtista(artista):
     with open('artista.csv', "r") as csv_file:
@@ -35,7 +40,6 @@ def checkMusica(Musica):
         csv_reader = csv.reader(csv_file, delimiter=',')
         pMusica = 0
         for row in csv_reader:
-            print(type(row))
             if row[2] == Musica:
                 pMusica = 1
          
@@ -44,7 +48,38 @@ def checkMusica(Musica):
             return 0
         else:
             return 1
+def checkDemo(Musica):
+    with open('musicas.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        pDemo = 0
+        for row in csv_reader:
+            if row[2] == Musica and row[3] == "sim":
+                pDemo = 1
+         
+        if pDemo == 0:
+            print("|| Musica sem demo!")
+            return 0
+        else:
+            return 1
+        
+#Função de listar musicas e tocar
+def playListMusica():
+    with open('musicas.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        print ("{:<25} {:<35} {:<10}".format("Artista", "Album", "Música"))
+        for row in csv_reader:
+            if row[3] == "sim":
+                print ("{:<25} {:<35} {:<10}".format(row[0], row[1], row[2]))
                 
+                
+def playMusica(Musica):
+    if checkMusica(Musica) and checkDemo(Musica):
+        mixer.init()
+        mixer.music.load("Musicas/" + Musica + ".mp3")
+        mixer.music.play()
+        while mixer.music.get_busy():
+            time.sleep(1)
+                          
 #Módulo de procurar por Artista
 def pArtista(artista):
     with open('albuns.csv') as csv_file:
@@ -59,19 +94,26 @@ def pAlbum(album):
     if checkAlbum(album):
         with open('albuns.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
-            print ("{:<25} {:<35} {:<10} {:<10}".format("Artista", "Album", "Género", "Data"))
+            print ("{:<25} {:<35} {:<10} {:<10} {:<10} {:<10}".format("Artista", "Album", "Género", "Data", "Nº Vendas", "Preço"))
             for row in csv_reader:
                 if row[1] == album:
-                    print ("{:<25} {:<35} {:<10} {:<10}".format(row[0], row[1], row[2], row[3]))
+                    print ("{:<25} {:<35} {:<10} {:<10} {:<10} {:<10}".format(row[0], row[1], row[2], row[3], row[4], row[5]))
+        with open('musicas.csv') as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
+            print("----------------------------------------------------------------------------------------------------")
+            print ("{:<10}".format("Músicas:"))
+            for row in csv_reader:
+                if row[1] == album:
+                    print ("--","{:<10}".format(row[2]))
 #Módulo de procurar por Música
 def pMusica(musica):
     if checkMusica(musica):
         with open('musicas.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
-            print ("{:<25} {:<35} {:<10} {:<10}".format("Artista", "Album", "Música"))
+            print ("{:<25} {:<35} {:<10}".format("Artista", "Album", "Música"))
             for row in csv_reader:
                 if row[2] == musica:
-                    print ("{:<25} {:<35} {:<10} {:<10}".format(row[0], row[1], row[2]))
+                    print ("{:<25} {:<35} {:<10}".format(row[0], row[1], row[2]))
 
 #Função para adicionar Artista        
 def gArtista(nome,nacionalidade,royalty):
@@ -99,13 +141,13 @@ def gAlbum(artista,nome,genero,data,vendas,preco):
                 csv_file.close()
 
 #Função para gravar nova música
-def gMusica(artista,album,musica,ficheiro,path):
+def gMusica(artista,album,musica,ficheiro):
    if checkArtista(artista) and checkAlbum(album):
         with open('musicas.csv', mode='a', newline='') as csv_file:
-            chaves = ['Artista','Album','Música', 'Demo', 'Path']
+            chaves = ['Artista','Album','Música', 'Demo']
             writer = csv.DictWriter(csv_file, fieldnames=chaves)
 
-            writer.writerow({'Artista': artista,'Album': album,'Música': musica, 'Demo': ficheiro, 'Path': path})
+            writer.writerow({'Artista': artista,'Album': album,'Música': musica, 'Demo': ficheiro})
             csv_file.close()
    else:
         functions.MenuEditar()   

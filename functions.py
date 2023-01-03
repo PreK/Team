@@ -1,6 +1,5 @@
 import dados
-#Caso python 3.11 usar a versão pre realease "pip install pygame --pre"
-import pygame
+
 
 def MenuInicial(admin):
     if admin==True:
@@ -35,7 +34,7 @@ def MenuInicial(admin):
 #Quando for criada a função de leitura e escrita do ficheiro csv retirar Direitos editorais á lista do utilizador
 def MenuPesquisar():
     while True:
-        print("|| Menu De Pesquisa\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 0. Voltar")
+        print("|| Menu De Pesquisa\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 4. Reprodutor\n|| 0. Voltar")
         opt=int(input("|| Opção:"))
         if opt==1:
             print("|| Pesquisa por Autores")
@@ -44,11 +43,15 @@ def MenuPesquisar():
         elif opt==2:
             print("|| Pesquisa por Álbuns")
             album = input("|| Introduza o Nome Do Álbum:")
-            dados.pArtista(album)
+            dados.pAlbum(album)
         elif opt==3:
             print("|| Pesquisa por Músicas")            
             musica = input("|| Introduza o Nome Da Música:")
             dados.pMusica(musica)
+        elif opt==4:
+            dados.playListMusica()            
+            musica = input("|| Introduza o Nome Da Música para ouvir a Demo:")
+            dados.playMusica(musica)
         elif opt==0:
             break
         else:
@@ -82,9 +85,8 @@ def MenuEditar():
                 while adicionar == "sim":
                     musica = input("|| Introduza a musica:")
                     ficheiro = input("|| Tem demo?: (sim/não):")
-                    path = input("|| Nome do ficheiro:")
                     adicionar = input("|| Adicionar outra Música ao album? (sim/não):")
-                    dados.gMusica(artista,album,musica,ficheiro,path)
+                    dados.gMusica(artista,album,musica,ficheiro)
             elif opt==0:
                 break
             else:
@@ -112,4 +114,4 @@ def MenuApagar():
                 break
             else:
                 print("|| O valor introdzido é inválido")
-                continue
+                continue       
