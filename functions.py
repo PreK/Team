@@ -106,13 +106,13 @@ def MenuApagar():
                 dados.aArtista(nome)
             elif opt==2:
                 print("|| Apagar Álbuns")
-                nome = input("|| Introduza o Nome:")
+                nome = input("|| Introduza o Nome do álbum:")
                 dados.aAlbum(nome)
                 
             elif opt==3:
-                print("|| Apagar Álbuns")
-                nome = input("|| Introduza o Nome:")
-                dados.aAlbum(nome)    
+                print("|| Apagar Música")
+                nome = input("|| Introduza o Nome da Musica:")
+                dados.aMusica(nome)    
             elif opt==0:
                 break
             else:

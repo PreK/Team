@@ -40,7 +40,7 @@ def checkMusica(Musica):
         csv_reader = csv.reader(csv_file, delimiter=',')
         pMusica = 0
         for row in csv_reader:
-            if row[2] == Musica:
+            if row[1] == Musica:
                 pMusica = 1
          
         if pMusica == 0:
@@ -161,7 +161,11 @@ def aMusica(musica):
                 for field in row:
                     if field == musica:
                         lmusica.remove(row)      
-
+        
+        with open('musicas.csv', mode='w', newline='') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lmusica)
+            
 #Função apagar Album              
 def aAlbum(Album):
     if checkAlbum(Album):
@@ -191,11 +195,6 @@ def aAlbum(Album):
             writer = csv.writer(writeFile)
             writer.writerows(lmusica)
             
-
-
-        with open('musicas.csv', mode='w', newline='') as writeFile:
-            writer = csv.writer(writeFile)
-            writer.writerows(lmusica)
 
 #Função apagar Artista  
 def aArtista(artista):
