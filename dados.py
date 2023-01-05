@@ -1,5 +1,5 @@
 import csv
-import functions
+import menus
 #Para esperar enquanto o MP3 toca
 import time
 #Caso python 3.11 usar a versão pre realease "pip install pygame --pre"
@@ -77,6 +77,7 @@ def playMusica(Musica):
         mixer.init()
         mixer.music.load("Musicas/" + Musica + ".mp3")
         mixer.music.play()
+        #menus.MenuPlay()
                           
 #Módulo de procurar por Artista
 def pArtista(artista):
@@ -150,7 +151,7 @@ def gMusica(artista,album,musica,ficheiro):
             writer.writerow({'Artista': artista,'Album': album,'Música': musica, 'Demo': ficheiro})
             csv_file.close()
    else:
-        functions.MenuEditar()   
+        menus.MenuEditar()   
         
 #Função apagar Musica              
 def aMusica(musica):
