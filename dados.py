@@ -77,7 +77,7 @@ def playMusica(Musica):
         mixer.init()
         mixer.music.load("Musicas/" + Musica + ".mp3")
         mixer.music.play()
-        #menus.MenuPlay()
+        menus.MenuPlay()
                           
 #Módulo de procurar por Artista
 def pArtista(artista):

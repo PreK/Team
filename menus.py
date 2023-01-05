@@ -1,5 +1,5 @@
 import dados
-#from pygame import mixer
+from pygame import mixer
 
 def MenuInicial(admin):
     if admin==True:
@@ -121,20 +121,20 @@ def MenuApagar():
                 print("|| O valor introdzido é inválido")
                 continue
 
-"""def MenuPlay():
-    while True:
-            print("|| Menu Play\n|| 1. Pausar\n|| 2. Resumir\n|| 3. Música\n|| 0. Voltar")
+def MenuPlay():
+        while True:
+            print("|| Menu De Reprodução\n|| 1. Pausar\n|| 2. Resumir\n|| 0. Voltar")
             opt=input("|| Opção:")
             if opt=="1":
                 print("|| Reprodução da musica pausada")
-                mixer.pause
+                mixer.music.pause()
             elif opt=="2":
                 print("|| Reprodução da musica resumida")
-                mixer.unpause
+                mixer.music.unpause()
             elif opt=="0":
                 print("|| Reprodução da musica parada com sucesso")
-                mixer.stop
+                mixer.quit()
                 break
             else:
                 print("|| O valor introdzido é inválido")
-                continue"""
+                continue
