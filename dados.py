@@ -40,7 +40,7 @@ def checkMusica(Musica):
         csv_reader = csv.reader(csv_file, delimiter=',')
         pMusica = 0
         for row in csv_reader:
-            if row[1] == Musica:
+            if row[2] == Musica:
                 pMusica = 1
          
         if pMusica == 0:
