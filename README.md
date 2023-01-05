@@ -10,8 +10,8 @@ O Admin tem ainda funções de pesquisa com acesso a mais informações e remoç
 
 Todas as pesquisas/adições/remoções são case sensitive.
 
-As músicas têm de ser adicionadas manualmente na pasta músicas com o nome que lhes foi atribuido na nossa aplicação.
+As músicas têm de ser adicionadas manualmente na pasta músicas com o nome que lhes foi atribuido na nossa aplicação e ao adicionar a musica confirmar com "sim" que tem demo.
 
-Quando for removido um autor todos os albuns e músicas pendentes ao mesmo serão apagados.
+Quando for removido um autor todos os albuns e músicas existentes do mesmo serão apagados.
 
-Quando for removido um album todas as músicas pendentes ao mesmo serão apagadas.
+Quando for removido um album todas as músicas existentes do mesmo serão apagadas.
