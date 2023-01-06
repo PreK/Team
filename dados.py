@@ -1,7 +1,5 @@
 import csv
 import menus
-#Para esperar enquanto o MP3 toca
-import time
 #Caso python 3.11 usar a versão pre realease "pip install pygame --pre"
 from pygame import mixer
 
@@ -95,10 +93,10 @@ def pAlbum(album):
     if checkAlbum(album):
         with open('albuns.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
-            print ("{:<25} {:<35} {:<10} {:<10} {:<10} {:<10}".format("Artista", "Album", "Género", "Data", "Nº Vendas", "Preço"))
+            print ("{:<25} {:<35} {:<10} {:<15} {:<10} {:<5}".format("Artista", "Album", "Género", "Data", "Nº Vendas", "Preço €"))
             for row in csv_reader:
                 if row[1] == album:
-                    print ("{:<25} {:<35} {:<10} {:<10} {:<10} {:<10}".format(row[0], row[1], row[2], row[3], row[4], row[5]))
+                    print("{:<25} {:<35} {:<15} {:<10} {:<10} {:>5}".format(row[0], row[1], row[2], row[3], row[4], row[5]), "€")
         with open('musicas.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             print("----------------------------------------------------------------------------------------------------")
@@ -270,3 +268,9 @@ def listAll():
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             print ("{:<25} {:<35} {:<10} ".format(row[0], row[1], row[2]))
+            
+def listAlbuns():
+    with open('albuns.csv') as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
+            for row in csv_reader:
+                print("{:<25} {:<35} {:<15} {:<10} {:<10} {:>5}".format(row[0], row[1], row[2], row[3], row[4], row[5]), "€")

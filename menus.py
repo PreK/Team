@@ -4,6 +4,7 @@ from pygame import mixer
 def MenuInicial(admin):
     if admin==True:
         while True:
+            print("--------------------")
             print("|| Menu Admin\n|| 1. Pesquisar\n|| 2. Editar\n|| 3. Apagar\n|| 0. Sair")
             opt=input("|| Opção:")
             if opt=="1":
@@ -20,6 +21,7 @@ def MenuInicial(admin):
                 continue
     else:
         while True:
+            print("--------------------")
             print("|| Menu Inicial\n|| 1. Pesquisar\n|| 0. Sair")
             opt=input("|| Opção:")
             if opt=="1":
@@ -34,7 +36,8 @@ def MenuInicial(admin):
 #Quando for criada a função de leitura e escrita do ficheiro csv retirar Direitos editorais á lista do utilizador
 def MenuPesquisar():
     while True:
-        print("|| Menu De Pesquisa\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 4. Reprodutor\n|| 0. Voltar")
+        print("--------------------")
+        print("|| Menu De Pesquisa\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 4. Reprodutor\n|| 5. Listar Todos Albuns\n|| 0. Voltar")
         opt=input("|| Opção:")
         if opt=="1":
             print("|| Pesquisa por Autores")
@@ -52,6 +55,8 @@ def MenuPesquisar():
             dados.playListMusica()            
             musica = input("|| Introduza o Nome Da Música para ouvir a Demo:")
             dados.playMusica(musica)
+        elif opt=="5":
+            dados.listAlbuns()
         elif opt=="0":
             break
         else:
@@ -60,6 +65,7 @@ def MenuPesquisar():
 #Só acessivel a admin
 def MenuEditar():
         while True:
+            print("--------------------")
             print("|| Menu Admin\n|| 1. Editar Autores\n|| 2. Editar Álbuns\n|| 3. Editar Músicas\n|| 4. Calcular Direitos editoriais\n|| 5. Listar todos\n|| 0. Voltar")
             opt=input("|| Opção:")
             if opt=="1":
@@ -89,7 +95,7 @@ def MenuEditar():
                     dados.gMusica(artista,album,musica,ficheiro)
             elif opt=="4":
                 autor = input("|| Introduza o nome do Autor para calcular os Direitos editoriais:")
-                print("Cálculo das vendas é de: ", dados.calculo(autor))
+                print("Cálculo das vendas é de: ", dados.calculo(autor), "€")
             elif opt=="5":
                 dados.listAll()
             elif opt=="0":
@@ -100,6 +106,7 @@ def MenuEditar():
             
 def MenuApagar():
         while True:
+            print("--------------------")
             print("|| Menu Apagar\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 0. Voltar")
             opt=input("|| Opção:")
             if opt=="1":
@@ -123,6 +130,7 @@ def MenuApagar():
 
 def MenuPlay():
         while True:
+            print("--------------------")
             print("|| Menu De Reprodução\n|| 1. Pausar\n|| 2. Resumir\n|| 0. Voltar")
             opt=input("|| Opção:")
             if opt=="1":
