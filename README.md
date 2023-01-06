@@ -1,6 +1,6 @@
 Para executar o nosso produto necessita de ter python instalado no seu dispositivo, que pode obter através do seguinte link: https://www.python.org/downloads/
 
-Após a instalação do programa python pode inicializar a nossa aplicação executando o programa denominado de Main.py e clicando na tecla "f5" no seu teclado.
+Após a instalação do programa python pode inicializar a nossa aplicação executando o programa denominado de Main.py e clicando na tecla "F5" no seu teclado.
 
 Para reproduzir as demos das músicas disponiveis vai necessitar de executar este comando na sua cmd "pip install pygame --pre"
 
