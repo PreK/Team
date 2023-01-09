@@ -1,11 +1,11 @@
 ----------------------------------------
 Requerimentos:
 ----------------------------------------
-Para executar o nosso produto necessita de ter python instalado no seu dispositivo, que pode obter através do seguinte link: https://www.python.org/downloads/.
+Para executar o nosso produto necessita de ter python instalado no seu dispositivo, que pode obter através do seguinte link: https://www.python.org/downloads/
 
-Após a instalação do programa python pode inicializar a nossa aplicação executando o programa Main.py e clicando na tecla "F5" no seu teclado.
+Após a instalação do programa python pode inicializar a nossa aplicação executando o programa Main.py e clicando na tecla "F5" no seu teclado
 
-Para reproduzir as demos das músicas disponiveis vai necessitar de executar este comando na sua cmd "pip install pygame --pre".
+Para reproduzir as demos das músicas disponiveis vai necessitar de executar este comando na sua cmd "pip install pygame --pre"
 ----------------------------------------
 Menus:
 ----------------------------------------
@@ -27,10 +27,14 @@ Menus:
 || Menu Admin
 || 1. Pesquisar
 - Permite pesquisar autores, álbuns e músicas.
-|| 2. Editar
-- 
+|| 2. Adicionar
+- Permite Adicionar autores, álbuns e músicas.
 || 3. Apagar
+- Permite Apagar autores, álbuns e músicas.
+|| 4. Calcular Direitos editoriais
+- Calcula o valor dos direitos editorais do autor que inserir
 || 0. Sair
+- Termina a execução da aplicação.
 ----------------------------------------
 Utilizador e Admin:
 ----------------------------------------
@@ -54,20 +58,37 @@ Somente Admin:
 || Menu Adicionar
 - Todas as adições são case sensitive.
 || 1. Adicionar Autores
-- Permite adicionar autores
+- Permite adicionar autores.
 || 2. Adicionar Álbuns
-- Permite adicionar álbuns
+- Permite adicionar álbuns.
 || 3. Adicionar Músicas
-- Permite adicionar músicas
+- Permite adicionar músicas.
 - As músicas têm de ser adicionadas manualmente na pasta músicas com o nome que lhes foi atribuido na nossa aplicação e ao adicionar a musica confirmar com "sim" que tem demo.
-|| 4. Calcular Direitos editoriais
-- Calcula o valor dos direitos editorais do autor que inserir
-|| 5. Listar todos
+|| 4. Listar todos
 - Lista todos os autores existentes.
+|| 5. Listar Todos Álbuns
+- Lista todos os álbuns existentes.
 || 0. Voltar
+- Retorna ao menu anterior.
+----------------------------------------
+|| Menu Apagar
+- Todas as remoções são case sensitive.
+|| 1. Autor
+- Permite remover autores
+- Quando for removido um autor todos os albuns e músicas existentes do mesmo serão apagados.
+|| 2. Álbum
+- Permite remover álbuns
+- Quando for removido um album todas as músicas existentes do mesmo serão apagadas.
+|| 3. Música
+- Permite remover músicas.
+- As músicas têm de ser removidas manualmente na pasta músicas.
+|| 4. Listar todos
+- Lista todos os autores existentes.
+|| 5. Listar Todos Álbuns
+- Lista todos os álbuns existentes.
+|| 0. Voltar
+- Retorna ao menu anterior.
 ----------------------------------------
 
-Quando for removido um autor todos os albuns e músicas existentes do mesmo serão apagados.
 
-Quando for removido um album todas as músicas existentes do mesmo serão apagadas.
-- Todas as pesquisas/adições/remoções são case sensitive.
+

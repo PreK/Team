@@ -149,7 +149,7 @@ def gMusica(artista,album,musica,ficheiro):
             writer.writerow({'Artista': artista,'Album': album,'Música': musica, 'Demo': ficheiro})
             csv_file.close()
    else:
-        menus.MenuEditar()   
+        menus.MenuAdicionar()   
         
 #Função apagar Musica              
 def aMusica(musica):

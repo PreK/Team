@@ -5,14 +5,17 @@ def MenuInicial(admin):
     if admin==True:
         while True:
             print("--------------------")
-            print("|| Menu Admin\n|| 1. Pesquisar\n|| 2. Editar\n|| 3. Apagar\n|| 0. Sair")
+            print("|| Menu Admin\n|| 1. Pesquisar\n|| 2. Adicionar\n|| 3. Apagar\n|| 4. Calcular Direitos editoriais\n|| 0. Sair")
             opt=input("|| Opção:")
             if opt=="1":
                 MenuPesquisar()
             elif opt=="2":
-                MenuEditar()
+                MenuAdicionar()
             elif opt=="3":
                 MenuApagar()
+            elif opt=="4":
+                autor = input("|| Introduza o nome do Autor para calcular os Direitos editoriais:")
+                print("Cálculo das vendas é de: ", dados.calculo(autor), "€")
             elif opt=="0":
                 print("|| Terminado com sucesso")
                 break
@@ -63,19 +66,19 @@ def MenuPesquisar():
             print("|| O valor introdzido é inválido")
             continue
 #Só acessivel a admin
-def MenuEditar():
+def MenuAdicionar():
         while True:
             print("--------------------")
-            print("|| Menu Adicionar\n|| 1. Adicionar Autores\n|| 2. Adicionar Álbuns\n|| 3. Adicionar Músicas\n|| 4. Calcular Direitos editoriais\n|| 5. Listar todos\n|| 0. Voltar")
+            print("|| Menu Adicionar\n|| 1. Adicionar Autores\n|| 2. Adicionar Álbuns\n|| 3. Adicionar Músicas\n|| 4. Listar todos\n|| 5. Listar Todos Álbuns\n|| 0. Voltar")
             opt=input("|| Opção:")
             if opt=="1":
-                print("|| Editor de Autores")
+                print("|| Adicionar Autores")
                 nome = input("|| Introduza o Nome:")
                 nacionalidade = input("|| Introduza o Nacionalidade:")
                 royalty = input("|| Direitos editoriais:")
                 dados.gArtista(nome,nacionalidade,royalty)
             elif opt=="2":
-                print("|| Editor de Álbuns")
+                print("|| Adicionar Álbuns")
                 artista = input("|| Introduza o Artista:")
                 nome = input("|| Introduza o Nome:")
                 genero = input("|| Introduza o Género Musical:")
@@ -84,7 +87,7 @@ def MenuEditar():
                 preco = input("|| Introduza o Preço:")
                 dados.gAlbum(artista,nome,genero,data,vendas,preco)
             elif opt=="3":
-                print("|| Editor de Músicas")
+                print("|| Adicionar Músicas")
                 artista = input("|| Introduza o Artista:")
                 album = input("|| Introduza o album:")
                 adicionar = "sim"
@@ -94,10 +97,9 @@ def MenuEditar():
                     adicionar = input("|| Adicionar outra Música ao album? (sim/não):")
                     dados.gMusica(artista,album,musica,ficheiro)
             elif opt=="4":
-                autor = input("|| Introduza o nome do Autor para calcular os Direitos editoriais:")
-                print("Cálculo das vendas é de: ", dados.calculo(autor), "€")
-            elif opt=="5":
                 dados.listAll()
+            elif opt=="5":
+                dados.listAlbuns()
             elif opt=="0":
                 break
             else:
@@ -107,21 +109,24 @@ def MenuEditar():
 def MenuApagar():
         while True:
             print("--------------------")
-            print("|| Menu Apagar\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 0. Voltar")
+            print("|| Menu Apagar\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 4. Listar todos\n|| 5. Listar Todos Álbuns\n|| 0. Voltar")
             opt=input("|| Opção:")
             if opt=="1":
-                print("|| Apagar por Autor, Vai eliminar também os Álbuns")
+                print("|| Apagar por Autor, Vai eliminar também os Álbuns e Músicas")
                 nome = input("|| Introduza o Nome:")
                 dados.aArtista(nome)
             elif opt=="2":
                 print("|| Apagar por Álbum, Vai eliminar também as Músicas")
                 nome = input("|| Introduza o Nome do álbum  :")
                 dados.aAlbum(nome)
-                
             elif opt=="3":
                 print("|| Apagar Música")
                 nome = input("|| Introduza o Nome da Musica:")
-                dados.aMusica(nome)    
+                dados.aMusica(nome)  
+            elif opt=="4":
+                dados.listAll()
+            elif opt=="5":
+                dados.listAlbuns() 
             elif opt=="0":
                 break
             else:
