@@ -128,7 +128,7 @@ def gArtista(nome,nacionalidade,royalty):
 
 #Função para gravar novo album 
 def gAlbum(artista,nome,genero,data,vendas,preco):
-   if checkArtista(artista):
+    if checkArtista(artista):
         if checkAlbum(nome):
             print("|| Album já existe!!")
         else:
@@ -143,14 +143,14 @@ def gAlbum(artista,nome,genero,data,vendas,preco):
         
 #Função para gravar nova música
 def gMusica(artista,album,musica,ficheiro):
-   if checkArtista(artista) and checkAlbum(album):
+    if checkArtista(artista) and checkAlbum(album):
         with open('musicas.csv', mode='a', newline='') as csv_file:
             chaves = ['Artista','Album','Música', 'Demo']
             writer = csv.DictWriter(csv_file, fieldnames=chaves)
 
             writer.writerow({'Artista': artista,'Album': album,'Música': musica, 'Demo': ficheiro})
             csv_file.close()
-   else:
+    else:
         print("|| Artista ou Album não existente!")
         menus.MenuAdicionar()
         
