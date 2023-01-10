@@ -69,7 +69,7 @@ def MenuPesquisar():
 def MenuAdicionar():
         while True:
             print("--------------------")
-            print("|| Menu Adicionar\n|| 1. Adicionar Autores\n|| 2. Adicionar Álbuns\n|| 3. Adicionar Músicas\n|| 4. Listar todos\n|| 5. Listar Todos Álbuns\n|| 0. Voltar")
+            print("|| Menu Adicionar\n|| 1. Adicionar Autores\n|| 2. Adicionar Álbuns\n|| 3. Adicionar Músicas\n|| 4. Listar Todos Autores\n|| 5. Listar Todos Álbuns\n|| 0. Voltar")
             opt=input("|| Opção:")
             if opt=="1":
                 print("|| Adicionar Autores")
@@ -109,7 +109,7 @@ def MenuAdicionar():
 def MenuApagar():
         while True:
             print("--------------------")
-            print("|| Menu Apagar\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 4. Listar todos\n|| 5. Listar Todos Álbuns\n|| 0. Voltar")
+            print("|| Menu Apagar\n|| 1. Autor\n|| 2. Álbum\n|| 3. Música\n|| 4. Listar Todos Autores\n|| 5. Listar Todos Álbuns\n|| 0. Voltar")
             opt=input("|| Opção:")
             if opt=="1":
                 print("|| Apagar por Autor, Vai eliminar também os Álbuns e Músicas")
@@ -117,7 +117,7 @@ def MenuApagar():
                 dados.aArtista(nome)
             elif opt=="2":
                 print("|| Apagar por Álbum, Vai eliminar também as Músicas")
-                nome = input("|| Introduza o Nome do álbum  :")
+                nome = input("|| Introduza o Nome do Álbum:")
                 dados.aAlbum(nome)
             elif opt=="3":
                 print("|| Apagar Música")
