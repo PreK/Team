@@ -26,7 +26,6 @@ def checkAlbum(album):
                 pAlbum = 1
          
         if pAlbum == 0:
-            print("|| Album não existente!")
             return 0
         else:
             return 1
@@ -104,6 +103,8 @@ def pAlbum(album):
             for row in csv_reader:
                 if row[1] == album:
                     print ("--","{:<10}".format(row[2]))
+    else:
+        print("|| Album não existente!")
 #Módulo de procurar por Música
 def pMusica(musica):
     if checkMusica(musica):
@@ -198,7 +199,8 @@ def aAlbum(Album):
         with open('musicas.csv', mode='w', newline='') as writeFile:
             writer = csv.writer(writeFile)
             writer.writerows(lmusica)
-            
+    else:
+        print("|| Album não existente!")      
 
 #Função apagar Artista  
 def aArtista(artista):
