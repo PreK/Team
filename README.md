@@ -63,7 +63,7 @@ Somente Admin:
 - Permite adicionar álbuns.
 || 3. Adicionar Músicas
 - Permite adicionar músicas.
-- As músicas têm de ser adicionadas manualmente na pasta músicas com o nome que lhes foi atribuido na nossa aplicação e ao adicionar a musica confirmar com "sim" que tem demo.
+- As demos das músicas têm de ser adicionadas manualmente na pasta músicas com o nome que lhes foi atribuido na nossa aplicação e ao adicionar a musica confirmar com "sim" que tem demo.
 || 4. Listar todos
 - Lista todos os autores existentes.
 || 5. Listar Todos Álbuns
