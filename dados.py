@@ -13,7 +13,6 @@ def checkArtista(artista):
                 pArtista = 1
          
         if pArtista == 0:
-            print("|| Artista não existente!")
             return 0
         else:
             return 1
@@ -86,7 +85,8 @@ def pArtista(artista):
             for row in csv_reader:
                 if row[0] == artista:
                     print ("{:<25} {:<35} {:<10} {:<10}".format(row[0], row[1], row[2], row[3]))
-                    
+        else:
+            print("|| Artista não existente!")            
 
 #Módulo de procurar por Album
 def pAlbum(album):
@@ -138,7 +138,9 @@ def gAlbum(artista,nome,genero,data,vendas,preco):
 
                 writer.writerow({'Artista': artista,'Album': nome,'Genero': genero, 'Data': data, 'Vendas': vendas,'Preco': preco})
                 csv_file.close()
-
+    else:
+        print("|| Artista não existente!")
+        
 #Função para gravar nova música
 def gMusica(artista,album,musica,ficheiro):
    if checkArtista(artista) and checkAlbum(album):
@@ -149,7 +151,8 @@ def gMusica(artista,album,musica,ficheiro):
             writer.writerow({'Artista': artista,'Album': album,'Música': musica, 'Demo': ficheiro})
             csv_file.close()
    else:
-        menus.MenuAdicionar()   
+        print("|| Artista ou Album não existente!")
+        menus.MenuAdicionar()
         
 #Função apagar Musica              
 def aMusica(musica):
@@ -239,7 +242,9 @@ def aArtista(artista):
         with open('musicas.csv', mode='w', newline='') as writeFile:
             writer = csv.writer(writeFile)
             writer.writerows(lmusica)
-
+    else:
+        print("|| Artista não existente!")
+        
 #Calculo de royalty's
 def calculo(Autor):
     if checkArtista(Autor):
